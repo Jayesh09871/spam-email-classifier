@@ -48,7 +48,7 @@ def train_model(
         model_name,
         num_labels=2,
         id2label=id2label,
-        label2id={"ham": 0, "spam": 1}
+        label2id={v: k for k, v in id2label.items()}
     )
     
     # Set training arguments

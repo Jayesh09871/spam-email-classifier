@@ -63,8 +63,8 @@ def load_and_prepare_dataset(
     dataset_dict = dataset_dict.rename_columns({text_col: "text", label_col: "label"})
     
     # Create label mapping
-    label2id = {0: "ham", 1: "spam"}
-    id2label = {v: k for k, v in label2id.items()}
+    id2label = {0: "ham", 1: "spam"}
+    label2id = {v: k for k, v in id2label.items()}
     
     return dataset_dict, id2label
 
