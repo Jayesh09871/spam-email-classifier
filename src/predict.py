@@ -17,7 +17,7 @@ class SpamClassifier:
             "text-classification",
             model=self.model,
             tokenizer=self.tokenizer,
-            return_all_scores=True
+            top_k=None  # Replace return_all_scores=True for new transformers versions
         )
     
     def predict(self, text: str) -> Dict[str, Any]:
@@ -40,7 +40,7 @@ class SpamClassifier:
 
 if __name__ == "__main__":
     # Example usage
-    classifier = SpamClassifier("distilbert-base-uncased-finetuned-sst-2-english")  # Replace with your model
+    classifier = SpamClassifier("Jayesh0987/spam-email-classifier")  # Replace with your model
     test_text = "Congratulations! You've won a free iPhone. Click here to claim your prize!"
     result = classifier.predict(test_text)
     print(result)
