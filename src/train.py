@@ -3,7 +3,8 @@ import numpy as np
 from transformers import (
     AutoModelForSequenceClassification,
     TrainingArguments,
-    Trainer
+    Trainer,
+    DataCollatorWithPadding
 )
 from src.preprocess import load_and_prepare_dataset, tokenize_dataset
 from src.utils import setup_logger, get_model_path, ensure_dir
@@ -69,6 +70,9 @@ def train_model(
         logging_steps=10
     )
     
+    # Create data collator
+    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+    
     # Train
     logger.info("Starting training...")
     trainer = Trainer(
@@ -76,6 +80,7 @@ def train_model(
         args=training_args,
         train_dataset=tokenized_ds["train"],
         eval_dataset=tokenized_ds["val"],
+        data_collator=data_collator,
         compute_metrics=compute_metrics
     )
     

@@ -87,8 +87,7 @@ def tokenize_dataset(
     logger.info("Tokenizing dataset...")
     tokenized_datasets = dataset_dict.map(tokenize_function, batched=True)
     
-    # Set format for PyTorch
-    tokenized_datasets.set_format("torch", columns=["input_ids", "attention_mask", "label"])
+    # Keep as is, we'll handle tensor conversion in a custom data collator
     
     return tokenized_datasets, tokenizer
 
