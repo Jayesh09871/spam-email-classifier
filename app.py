@@ -15,7 +15,7 @@ st.title("📧 Spam Email Classifier")
 st.markdown("Classify emails as **Spam** or **Ham** (Not Spam) using a fine-tuned DistilBERT model.")
 
 # Model selection
-MODEL_PATH = os.getenv("MODEL_PATH", "distilbert-base-uncased")
+MODEL_PATH = os.getenv("MODEL_PATH", "Jayesh0987/spam-email-classifier")
 
 # Load model
 @st.cache_resource(show_spinner="Loading model...")
