@@ -76,7 +76,6 @@ def train_model(
         args=training_args,
         train_dataset=tokenized_ds["train"],
         eval_dataset=tokenized_ds["val"],
-        tokenizer=tokenizer,
         compute_metrics=compute_metrics
     )
     
